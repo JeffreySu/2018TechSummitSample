@@ -30,6 +30,14 @@ namespace TechSummitSample.MessageHandlers
         //    });
         //}
 
+        public override IResponseMessageBase OnTextRequest(RequestMessageText requestMessage)
+        {
+            var responseMessage = requestMessage.CreateResponseMessage<ResponseMessageImage>();
+            responseMessage.Image.MediaId = "你好！";
+            return responseMessage;
+        }
+
+
         public override IResponseMessageBase DefaultResponseMessage(IRequestMessageBase requestMessage)
         {
             //throw new NotImplementedException();
